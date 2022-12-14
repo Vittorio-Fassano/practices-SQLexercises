@@ -1,0 +1,1 @@
+SELECT users.* FROM users JOIN cities ON users."cityId" = cities.id WHERE "cityId" = 3658;
