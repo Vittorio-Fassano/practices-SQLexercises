@@ -20,3 +20,28 @@ CREATE TABLE "users" (
     "password" TEXT NOT NULL,  
     "adress_id" INTEGER NOT NULL REFERENCES "adresses"("id")
 );
+
+/* products */
+CREATE TABLE "sizes" (
+    "id" SERIAL PRIMARY KEY,
+    "name" TEXT NOT NULL
+);
+
+CREATE TABLE "categories" (
+    "id" SERIAL PRIMARY KEY,
+    "name" TEXT NOT NULL
+);
+
+CREATE TABLE "images" (
+    "id" SERIAL PRIMARY KEY,
+    "url" TEXT NOT NULL
+);
+
+CREATE TABLE "products" (
+    "id" SERIAL PRIMARY KEY,
+    "name" TEXT NOT NULL, 
+    "price" INTEGER NOT NULL,  
+    "size_id" INTEGER NOT NULL REFERENCES "sizes"("id"),
+    "category_id" INTEGER NOT NULL REFERENCES "categories"("id"),
+    "image_id" INTEGER NOT NULL REFERENCES "images"("id")
+);
