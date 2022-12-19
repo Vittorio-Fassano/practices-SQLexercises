@@ -1,6 +1,6 @@
 CREATE DATABASE ecommercedriven;
 
-/* users (already created)*/
+/* users */
 CREATE TABLE "cities" (
     "id" SERIAL PRIMARY KEY,
     "name" TEXT NOT NULL
