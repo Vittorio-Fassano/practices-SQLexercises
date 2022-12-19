@@ -45,3 +45,19 @@ CREATE TABLE "products" (
     "category_id" INTEGER NOT NULL REFERENCES "categories"("id"),
     "image_id" INTEGER NOT NULL REFERENCES "images"("id")
 );
+
+/* orders */
+CREATE TABLE "orders_state" (
+    "id" SERIAL PRIMARY KEY,
+    "name" TEXT NOT NULL
+);
+
+CREATE TABLE "orders" (
+    "id" SERIAL PRIMARY KEY,
+    "date" DATE NOT NULL DEFAULT NOW(),  
+    "user_id" INTEGER NOT NULL REFERENCES "users"("id"),
+    "adress_id" INTEGER NOT NULL REFERENCES "adresses"("id"),
+    "state_id" INTEGER NOT NULL REFERENCES "orders_state"("id")
+);
+
+
